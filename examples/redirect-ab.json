@@ -1,0 +1,16 @@
+{
+  "config": {
+    "policy_id": "demo-policy-001",
+    "blocked_countries": ["KP"],
+    "ab_redirects": [
+      { "ab_bucket": "experimental", "redirect_to": "https://canary.example.com" }
+    ]
+  },
+  "input": {
+    "country": "DE",
+    "rate_bucket": "paid",
+    "rate_tokens_remaining": 50,
+    "ab_bucket": "experimental",
+    "original_url": "https://example.com/dashboard"
+  }
+}

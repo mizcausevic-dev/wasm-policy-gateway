@@ -1,0 +1,14 @@
+{
+  "config": {
+    "policy_id": "demo-policy-001",
+    "blocked_countries": ["KP", "IR"],
+    "ab_redirects": []
+  },
+  "input": {
+    "country": "KP",
+    "rate_bucket": "free",
+    "rate_tokens_remaining": 100,
+    "ab_bucket": null,
+    "original_url": "https://example.com/sensitive"
+  }
+}

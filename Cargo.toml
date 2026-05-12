@@ -1,0 +1,33 @@
+[package]
+name = "wasm-policy-gateway"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.75"
+description = "Edge policy gateway: pure-Rust geo + rate-limit + A/B routing logic, compiled to WASI for portable deployment (Wasmtime, Cloudflare Workers via wasmtime-component, Fastly Compute)."
+license = "AGPL-3.0"
+repository = "https://github.com/mizcausevic-dev/wasm-policy-gateway"
+homepage = "https://github.com/mizcausevic-dev/wasm-policy-gateway"
+readme = "README.md"
+keywords = ["wasm", "wasi", "policy", "edge", "rate-limit"]
+categories = ["wasm", "command-line-utilities"]
+
+[[bin]]
+name = "policy-gateway"
+path = "src/main.rs"
+
+[lib]
+name = "policy_gateway"
+path = "src/lib.rs"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[dev-dependencies]
+pretty_assertions = "1"
+
+[profile.release]
+opt-level = "s"     # optimize for size in WASM builds
+lto = true
+codegen-units = 1
+strip = true
